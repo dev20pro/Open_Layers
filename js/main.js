@@ -31,13 +31,13 @@
 
         var view = new ol.View({
             center: latlong,
-            zoom: 6
+            zoom: 15
         });
 
         //intenciating the map object with target element, coustom controls and assigning layers, zoom and projection transformation to the map
         var map = new ol.Map({
             target : 'map',
-            layers : [osmlayer, stamenlayer],
+            layers : [stamenlayer, osmlayer],
             controls : [control],
             view: view
         });
