@@ -23,15 +23,23 @@
         <!-- Setting the div for the coustom Controls -->
         <div id='controls'>
             <div id='layers'>
-             <div id='osm_layer'>
+
+            <div id='steman_layer_toner'>
+                Steman Layer<br/>
+                <input type='checkbox' id='steman_toner_Visiblity' checked>
+                <input type='range' id='stemanTonerOpacity' min='0' max='1' step='0.01'><br/>
+            </div>
+
+             <div id='steman_layer_water'>
+                Steman Water Layer<br/>
+                <input type='checkbox' id='steman_water_Visiblity' checked>
+                <input type='range' id='stemanWaterOpacity' min='0' max='1' step='0.01'><br/>
+            </div>
+            
+            <div id='osm_layer'>
                 OSM Layer<br/>
                 <input type='checkbox' id='osmVisiblity' checked>
                 <input type='range' id='osmOpacity' min='0' max='1' step='0.01'><br/>
-            </div>
-            <div id='steman_layer'>
-                Steman Layer<br/>
-                <input type='checkbox' id='stemanVisiblity' checked>
-                <input type='range' id='stemanOpacity' min='0' max='1' step='0.01'><br/>
             </div>
             </div>
             

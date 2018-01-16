@@ -1,6 +1,15 @@
 
-        // Creating the map layer with the stamen source 
-        var stamenlayer = new ol.layer.Tile({
+        // Creating the map Tile with the stamen source 
+        var stamenwaterlayer = new ol.layer.Tile({
+            //specifying the source here
+            source: new ol.source.Stamen({
+                //setting the layer type within the Stamen layer source
+                layer : 'watercolor'
+            })
+        });
+
+          // Creating the map Tile with the stamen source 
+        var stamentonerlayer = new ol.layer.Tile({
             //specifying the source here
             source: new ol.source.Stamen({
                 //setting the layer type within the Stamen layer source
@@ -8,7 +17,7 @@
             })
         });
 
-         // Creating the map layer with the OSM (Open Street Map) source 
+         // Creating the map Tile with the OSM (Open Street Map) source 
         var osmlayer = new ol.layer.Tile({
             //specifying the source here
             source: new ol.source.OSM()
@@ -37,7 +46,7 @@
         //intenciating the map object with target element, coustom controls and assigning layers, zoom and projection transformation to the map
         var map = new ol.Map({
             target : 'map',
-            layers : [stamenlayer, osmlayer],
+            layers : [osmlayer, stamenwaterlayer, stamentonerlayer],
             controls : [control],
             view: view
         });
@@ -48,9 +57,14 @@
             osmlayer.setVisible(this.checked);
         });
 
-        //function for changing visibility of steman layer on click event
-        $("#stemanVisiblity").click(function stamenLayerVisibility(){
-            stamenlayer.setVisible(this.checked);
+        //function for changing visibility of steman Toner layer on click event
+        $("#steman_toner_Visiblity").click(function stamenLayerVisibility(){
+            stamentonerlayer.setVisible(this.checked);
+        });
+  
+        //function for changing visibility of steman Water layer on click event
+        $("#steman_water_Visiblity").click(function stamenLayerVisibility(){
+            stamenwaterlayer.setVisible(this.checked);
         });
 
         // Creating the function for changing the opacity of the layers
@@ -59,12 +73,16 @@
             osmlayer.setOpacity(parseFloat(this.value));
         });
 
-        // function for changing the opacity of the stamen layer
-        $('#stemanOpacity').on('input change',function osmOpacity(){
-            stamenlayer.setOpacity(parseFloat(this.value));
+        // function for changing the opacity of the stamen water layer
+        $('#stemanWaterOpacity').on('input change',function osmOpacity(){
+            stamenwaterlayer.setOpacity(parseFloat(this.value));
         });
 
-        //  var opacityInput = $('#opacity1');
-        // opacityInput.on('input change', function() {
-        //   stamenLayer.setOpacity(parseFloat(this.value));
-        // });
+         // function for changing the opacity of the stamen toner layer
+        $('#stemanTonerOpacity').on('input change',function osmOpacity(){
+            stamentonerlayer.setOpacity(parseFloat(this.value));
+        });
+
+
+
+        
